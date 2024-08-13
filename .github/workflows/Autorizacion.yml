@@ -35,7 +35,7 @@ jobs:
         name: Autorizacion.Middleware
         if-no-files-found: error
         retention-days: 7
-        path: /home/runner/work/Caso2_Paquetes/Caso2_Paquetes/AutorizacionMiddleware////.nupkg
+        path: /home/runner/work/Caso2_Paquetes/Caso2_Paquetes/AutorizacionMiddleware/*/*/*/*.nupkg
 
   release:
     runs-on: ubuntu-latest    
@@ -53,4 +53,4 @@ jobs:
     - name: Prep packages
       run: dotnet nuget add source --username Roosemberg --password ${{ secrets.PAQUETES_TOKEN_C1 }} --store-password-in-clear-text --name paquetes "https://nuget.pkg.github.com/Roosemberg/index.json"
     - name: Push package to GitHub packages 
-      run: dotnet nuget push Autorizacion.Middleware////.nupkg --api-key ${{ secrets.PAQUETES_TOKEN_C1 }}  --source "paquetes" --skip-duplicate
+      run: dotnet nuget push Autorizacion.Middleware/*/*/*/*.nupkg --api-key ${{ secrets.PAQUETES_TOKEN_C1 }}  --source "paquetes" --skip-duplicate
